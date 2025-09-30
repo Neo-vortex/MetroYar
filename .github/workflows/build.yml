@@ -24,9 +24,17 @@ jobs:
         with:
           flutter-version: '3.35.5'
           channel: 'stable'
+          cache: true
       
-      - name: Install dependencies
-        run: flutter pub get
+      - name: Verify Flutter and Dart versions
+        run: |
+          flutter --version
+          dart --version
+      
+      - name: Clean and get dependencies
+        run: |
+          flutter clean
+          flutter pub get
       
       - name: Build APK
         run: flutter build apk --release
@@ -45,11 +53,19 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
+          flutter-version: '3.35.5'
           channel: 'stable'
+          cache: true
       
-      - name: Install dependencies
-        run: flutter pub get
+      - name: Verify Flutter and Dart versions
+        run: |
+          flutter --version
+          dart --version
+      
+      - name: Clean and get dependencies
+        run: |
+          flutter clean
+          flutter pub get
       
       - name: Build Web
         run: flutter build web --release
@@ -65,7 +81,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Install dependencies
+      - name: Install Linux dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev
@@ -73,14 +89,22 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
+          flutter-version: '3.35.5'
           channel: 'stable'
+          cache: true
+      
+      - name: Verify Flutter and Dart versions
+        run: |
+          flutter --version
+          dart --version
       
       - name: Enable Linux Desktop
         run: flutter config --enable-linux-desktop
       
-      - name: Install dependencies
-        run: flutter pub get
+      - name: Clean and get dependencies
+        run: |
+          flutter clean
+          flutter pub get
       
       - name: Build Linux
         run: flutter build linux --release
@@ -104,14 +128,22 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
+          flutter-version: '3.35.5'
           channel: 'stable'
+          cache: true
+      
+      - name: Verify Flutter and Dart versions
+        run: |
+          flutter --version
+          dart --version
       
       - name: Enable Windows Desktop
         run: flutter config --enable-windows-desktop
       
-      - name: Install dependencies
-        run: flutter pub get
+      - name: Clean and get dependencies
+        run: |
+          flutter clean
+          flutter pub get
       
       - name: Build Windows
         run: flutter build windows --release
@@ -134,14 +166,22 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
+          flutter-version: '3.35.5'
           channel: 'stable'
+          cache: true
+      
+      - name: Verify Flutter and Dart versions
+        run: |
+          flutter --version
+          dart --version
       
       - name: Enable macOS Desktop
         run: flutter config --enable-macos-desktop
       
-      - name: Install dependencies
-        run: flutter pub get
+      - name: Clean and get dependencies
+        run: |
+          flutter clean
+          flutter pub get
       
       - name: Build macOS
         run: flutter build macos --release
