@@ -1,16 +1,28 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 import 'RouteFindingPage.dart';
 import 'ZoomableSvgPage.dart' show ZoomableSvgPage;
 
 void main() {
-  runApp( MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // sqflite_common_ffi is required on desktop (Windows / Linux / macOS).
+  // On Android / iOS the bundled sqflite plugin handles everything automatically.
+  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    sqfliteFfiInit();
+    databaseFactory = databaseFactoryFfi;
+  }
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-   MyApp({super.key}) {
+  MyApp({super.key}) {
 
   }
 

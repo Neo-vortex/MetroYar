@@ -576,8 +576,8 @@ class _RouteResultsPageState extends State<RouteResultsPage> with TickerProvider
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  step.station.properties["translationsFa"].isNotEmpty
-                      ? step.station.properties["translationsFa"]
+                  step.station.nameFa.isNotEmpty
+                      ? step.station.nameFa
                       : "ایستگاه",
                   style: const TextStyle(
                     fontSize: 16,
@@ -585,7 +585,7 @@ class _RouteResultsPageState extends State<RouteResultsPage> with TickerProvider
                     color: Colors.black87,
                   ),
                 ),
-                if (step.station.properties["translationsEn"].isNotEmpty) ...[
+                if (step.station.nameEn.isNotEmpty) ...[
                   const SizedBox(height: 2),
                   Text(
                     step.station.translationsEn,
@@ -678,8 +678,8 @@ class _RouteResultsPageState extends State<RouteResultsPage> with TickerProvider
     switch (step.type) {
       case RouteStepType.start:
         if (nextStep != null) {
-          final nextStationName = nextStep.station.properties["translationsFa"].isNotEmpty
-              ? nextStep.station.properties["translationsFa"]
+          final nextStationName = nextStep.station.nameFa.isNotEmpty
+              ? nextStep.station.nameFa
               : "ایستگاه بعدی";
           if (step.lineNumber != null) {
             return "سوار خط ${step.lineNumber} شوید و به سمت $nextStationName حرکت کنید";
@@ -690,8 +690,8 @@ class _RouteResultsPageState extends State<RouteResultsPage> with TickerProvider
 
       case RouteStepType.goToNextStation:
         if (nextStep != null && previousStep != null) {
-          final nextStationName = nextStep.station.properties["translationsFa"].isNotEmpty
-              ? nextStep.station.properties["translationsFa"]
+          final nextStationName = nextStep.station.nameFa.isNotEmpty
+              ? nextStep.station.nameFa
               : "ایستگاه بعدی";
           if (step.lineNumber != null) {
             return "در خط ${step.lineNumber} ادامه دهید - ایستگاه بعدی: $nextStationName";
@@ -705,8 +705,8 @@ class _RouteResultsPageState extends State<RouteResultsPage> with TickerProvider
       case RouteStepType.changeLine:
         if (step.fromLine != null && step.toLine != null) {
           if (nextStep != null) {
-            final nextStationName = nextStep.station.properties["translationsFa"].isNotEmpty
-                ? nextStep.station.properties["translationsFa"]
+            final nextStationName = nextStep.station.nameFa.isNotEmpty
+                ? nextStep.station.nameFa
                 : "ایستگاه بعدی";
             return "از خط ${step.fromLine} پیاده شده و سوار خط ${step.toLine} شوید\nایستگاه بعدی: $nextStationName";
           }
@@ -792,7 +792,7 @@ class _RouteResultsPageState extends State<RouteResultsPage> with TickerProvider
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [?Colors.orange[1], ?Colors.orange[2]],
+          colors: [Colors.orange[50]!, Colors.orange[100]!],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -868,7 +868,7 @@ class _RouteResultsPageState extends State<RouteResultsPage> with TickerProvider
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: Colors.blue[25],
+        color: Colors.blue[50],
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: Colors.blue[100]!, width: 1),
       ),
@@ -882,7 +882,7 @@ class _RouteResultsPageState extends State<RouteResultsPage> with TickerProvider
           const SizedBox(width: 8),
           Expanded(
             child: Text(
-              "ایستگاه بعدی: ${nextStep.station.properties["translationsFa"]}",
+              "ایستگاه بعدی: ${nextStep.station.nameFa}",
               style: TextStyle(
                 fontSize: 12,
                 color: Colors.blue[700],
