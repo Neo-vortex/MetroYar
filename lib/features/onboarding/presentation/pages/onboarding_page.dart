@@ -18,7 +18,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   final PageController _pageController = PageController();
   int _index = 0;
 
-  static const int _pageCount = 2;
+  static const int _pageCount = 5;
 
   @override
   void dispose() {
@@ -76,8 +76,35 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     title: 'سریع‌ترین مسیر را پیدا کنید',
                     description:
                         'ایستگاه مبدا و مقصد را انتخاب کنید تا مترویار '
-                        'کم‌ایستگاه‌ترین، کم‌فاصله‌ترین یا کم‌تعویض‌ترین '
-                        'مسیر بین آن‌ها را به شما نشان دهد.',
+                        'بهترین مسیر بین آن‌ها را در چند لحظه به شما '
+                        'نشان دهد.',
+                  ),
+                  OnboardingSlide(
+                    icon: Icons.tune_rounded,
+                    color: AppColors.lineColor(7),
+                    title: 'مسیر را مطابق سلیقهٔ خودتان بچینید',
+                    description:
+                        'از میان چند الگوریتم جست‌وجو انتخاب کنید: '
+                        'کم‌ایستگاه‌ترین، کم‌فاصله‌ترین، کم‌تعویض‌ترین یا '
+                        'کم‌زمان‌ترین مسیر — هرکدام را که می‌خواهید ببینید.',
+                  ),
+                  OnboardingSlide(
+                    icon: Icons.my_location_rounded,
+                    color: AppColors.warning,
+                    title: 'با موقعیت مکانی یا روی نقشه انتخاب کنید',
+                    description:
+                        'نزدیک‌ترین ایستگاه به موقعیت فعلی‌تان را به‌صورت '
+                        'خودکار پیدا کنید یا مبدا و مقصد را مستقیماً روی '
+                        'نقشهٔ شهر لمس کنید.',
+                  ),
+                  OnboardingSlide(
+                    icon: Icons.schedule_rounded,
+                    color: AppColors.danger,
+                    title: 'زمان دقیق حرکت قطارها',
+                    description:
+                        'برنامهٔ حرکت قطار هر ایستگاه و زمان تقریبی رسیدن '
+                        'به مقصد را ببینید تا هیچ‌وقت منتظر قطار بعدی '
+                        'نمانید.',
                   ),
                   OnboardingSlide(
                     icon: Icons.map_rounded,
