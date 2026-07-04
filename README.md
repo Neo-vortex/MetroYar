@@ -105,7 +105,7 @@ This is currently a personal/solo project, but feel free to open an issue if you
 
 ## 📄 License
 
-No license has been set yet — treat this as "all rights reserved" until stated otherwise.
+MIT 2.0
 
 ---
 
